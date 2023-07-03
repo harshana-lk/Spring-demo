@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="priceService" class="PriceCalcImpl"/>
+    <bean id="coursedetails" class="CourseDetails" scope="singleton" init-method="start" destroy-method="destroy">
+        <property name="priceCalc" ref="priceService"/>
+        <property name="duration" value="8 Months"/>
+    </bean>
+</beans>

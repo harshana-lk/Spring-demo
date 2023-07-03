@@ -1,6 +1,12 @@
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class AppInitializer {
     public static void main(String[] args) {
-        CourseDetails courseDetails = new CourseDetails();
-        System.out.println(courseDetails.getProgrammeName());
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        CourseDetails cd = context.getBean("coursedetails", CourseDetails.class);
+        System.out.println(cd.getProgrammeName());
+        System.out.println(cd.getPrice());
+        System.out.println(cd.getDuration());
+        context.close();
     }
 }
